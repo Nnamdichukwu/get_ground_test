@@ -33,5 +33,14 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   getground:
+    raw:
+    #Applies to all files in models/raw
+      +materialized: table
+    staging:
+    # Applies to all files in models/staging
+      +materialized:  view
+    # Applies to all files in models/reporting
+    reporting:
+      +materialized: table
  
     
