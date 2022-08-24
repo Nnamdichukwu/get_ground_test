@@ -1,0 +1,42 @@
+version: 2
+
+sources:
+    - name: getground
+      description: This is the source connector to bigquery
+      database: getgroundtest-360217
+      schema: getground_data
+      tables:
+        - name: partners
+          description: This table contains all information about end-customers referred to as partners
+          columns:
+            - name: id
+              description: This is the primary key in this table
+              tests: 
+                - unique
+                - not_null
+        - name: referrals_table
+          description: This table shows all referrals
+          columns:
+            - name: id
+              description: this is the primary key in this table
+              tests:
+                - unique
+                - not_null
+            - name: status
+              description: this shows the status of any referral
+              tests:
+               - not_null
+               - accepted_values:
+                    values: ['successful', 'pending', 'disinterested'] 
+        - name: sales_team
+          description: This table contains all the information of the sales team
+          columns:
+            - name: name
+              description: The name of the sales rep. This is meant to act as the primary key
+              tests:
+                - unique
+                - not_null
+            - name: country
+              tests:
+                - not_null
+            
