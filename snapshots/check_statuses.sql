@@ -5,8 +5,8 @@
       target_database='getgroundtest-360217',
       target_schema='snapshots',
       unique_key='id',
-      strategy='check',
-      check_cols='all',
+      strategy='timestamp',
+      updated_at='updated_at',
     )
 }}
 
